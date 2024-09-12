@@ -1,30 +1,38 @@
-name: .NET
+name: build and test
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    paths:
+    - 'UnitTest1.cs'
+    - 'Student evaluation.Test.csproj'
+
+env:
+  DOTNET_VERSION: '6.0.401' # The .NET SDK version to use
 
 jobs:
-  build:
-    env:
-      BUILD_CONFIG: 'Release'
-      SOLUTION: 'Student evaluation.sln'
+  build-and-test:
 
-    runs-on: windows-latest
+    name: build-and-test-${{matrix.os}}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET
-    - uses: actions/setup-dotnet@v1
+    - uses: actions/checkout@v3
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '3.0.x'
-    - name: Setup MSBuild Path
-      uses: microsoft/setup-msbuild@v2
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+
+    - name: Install dependencies
+      run: dotnet restore
+      
     - name: Build
-      run:  msbuild.exe .\Student evaluation.sln
-    - name: Setup VSTest and add to PATH
-      uses: darenm/Setup-VSTest@v1
-    - name: Run VSTest
-      run: vstest.console.exe .\Student evaluation.Test\bin\Debug\Student evaluation.Test.dll /Platform:x64
+      run: dotnet build --configuration Release --no-restore
+    
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
