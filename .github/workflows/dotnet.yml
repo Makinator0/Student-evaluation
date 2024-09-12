@@ -27,6 +27,9 @@ jobs:
 
     - name: Build the Solution
       run: msbuild "Student evaluation.sln"
+    - name: List Directory Contents
+      run: dir
+
     - name: Run Unit Tests
       run: dotnet test "Student evaluation.Test.csproj"
 
