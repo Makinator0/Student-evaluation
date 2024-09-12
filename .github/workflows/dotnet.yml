@@ -25,9 +25,9 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore $SOLUTION
     - name: Build
-      run: dotnet build $SOLUTION -- configuration $BUILD_CONFIG
+      run: dotnet build 'Student evaluation.sln' -- configuration 'Release'
     - name: Test
-      run: dotnet test $SOLUTION -- configuration $BUILD_CONFIG
+      run: dotnet test 'Student evaluation.sln' -- configuration 'Release'
 
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
