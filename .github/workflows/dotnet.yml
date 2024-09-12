@@ -27,5 +27,7 @@ jobs:
 
     - name: Build the Solution
       run: msbuild "Student evaluation.sln"
+    - name: Run Unit Tests
+      run: dotnet test "Student evaluation.Test.csproj"
 
     
