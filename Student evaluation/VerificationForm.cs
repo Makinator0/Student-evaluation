@@ -21,7 +21,7 @@ namespace Student_evaluation
         {
             InitializeComponent();
             //Random random = new Random();
-            //string Token1 = random.Next(1000, 10000).ToString();
+            //Token1 = random.Next(1000, 10000).ToString();
             //var twilioConfigString = File.ReadAllText("twilioConfig.json");
             //var twilioConfig = JsonSerializer.Deserialize<TwilioConfig>(twilioConfigString);
             //TwilioClient.Init(twilioConfig.AccountSID, twilioConfig.AuthToken);

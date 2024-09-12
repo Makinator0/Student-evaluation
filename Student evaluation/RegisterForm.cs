@@ -156,8 +156,7 @@ namespace Student_evaluation
                 Group = userGroupField.Text
             };
 
-            SsveData.StudentsManager.AddStudent(student);
-            SsveData.SaveDataToFile();
+            StudentManager.AddStudent(student);
             MessageBox.Show("Data saved.");
 
             FormsManager.OpenForm(new SubjectsForm(student));
