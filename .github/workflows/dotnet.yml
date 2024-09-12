@@ -22,10 +22,10 @@ jobs:
       uses: Nuget/setup-nuget@v2
       
     - name: Restore NuGet packages
-      run: nuget restore Student-evaluation.sln
+      run: nuget restore Student evaluation.sln
       
 
     - name: Build the Solution
-      run: msbuild Student-evaluation.sln
+      run: msbuild Student evaluation.sln
 
     
