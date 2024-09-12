@@ -5,6 +5,8 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+env:
+    DOTNET_VERSION:"8.x"    
 
 jobs:
   build:
@@ -27,11 +29,10 @@ jobs:
 
     - name: Build the Solution
       run: msbuild "Student evaluation.sln"
-    - name: List Directory Contents
-      run: dir
+    
 
     - name: Run Unit Tests
-      run: dotnet test "Student evaluation.Test/Student evaluation.Test.csproj" --verbosity detailed
+      run: dotnet test 
 
 
 
