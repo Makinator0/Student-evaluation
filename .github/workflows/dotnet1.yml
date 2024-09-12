@@ -29,6 +29,8 @@ jobs:
 
     - name: Restore NuGet packages
       run: nuget restore "Student evaluation.sln"
+    - name: Build the Solution
+      run: msbuild "Student evaluation.sln"
     - name: Build
       run: dotnet build --no-restore
     - name: Test
