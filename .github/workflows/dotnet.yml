@@ -23,10 +23,10 @@ jobs:
         dotnet-version: 8.x
 
     - name: Restore dependencies
-      run: dotnet restore $SOLUTION
+      run: dotnet restore "Student evaluation"
 
     - name: Build
-      run: dotnet build $SOLUTION --configuration $BUILD_CONFIG
+      run: dotnet build "Student evaluation" --configuration $BUILD_CONFIG
 
     - name: Test
       run: dotnet test "Student evaluation.Test/Student evaluation.Test.csproj" --configuration $BUILD_CONFIG
