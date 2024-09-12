@@ -31,6 +31,7 @@ jobs:
       run: dir
 
     - name: Run Unit Tests
-      run: dotnet test "Student evaluation.Test.sln"
+      run: dotnet test "Student evaluation.Test/Student evaluation.Test.csproj"
+
 
     
