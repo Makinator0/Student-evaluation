@@ -1,14 +1,15 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
+using System.Xml;
 
 namespace Student_evaluation.Test
 {
     [TestClass]
-    public class SsveDataTests
+    public class SaveDataTests
     {
-        private const string TestFileName = "students.txt";
+        private const string TestFileName = "DataProvider.json";
 
         [TestInitialize]
         public void Setup()
@@ -32,17 +33,17 @@ namespace Student_evaluation.Test
         public void LoadDataFromFile_FileExists_LoadsStudentsCorrectly()
         {
             // Arrange
-            string[] testData = {
-                "John,Doe,Smith,GroupA",
-                "Jane,Roe,Doe,GroupB"
+            var testData = new List<Student>
+            {
+                new Student { Name = "John", Surname = "Doe", LastName = "Smith", Group = "GroupA" },
+                new Student { Name = "Jane", Surname = "Roe", LastName = "Doe", Group = "GroupB" }
             };
-            File.WriteAllLines(TestFileName, testData);
+            File.WriteAllText(TestFileName, JsonConvert.SerializeObject(testData, Newtonsoft.Json.Formatting.Indented));
 
             // Act
-            SsveData.LoadDataFromFile();
+            var students = SaveData.LoadStudents();
 
             // Assert
-            var students = SsveData.StudentsManager.Students;
             Assert.AreEqual(2, students.Count, "Student count does not match.");
 
             // Additional assertions to check individual student properties
@@ -68,26 +69,29 @@ namespace Student_evaluation.Test
                 LastName = "Doe",
                 Group = "GroupC"
             };
-            SsveData.StudentsManager.AddStudent(student);
+            SaveData.AddStudent(student);
 
             // Act
-            SsveData.SaveDataToFile();
-            string[] lines = File.ReadAllLines(TestFileName);
+            var students = SaveData.LoadStudents();
+            string jsonContent = File.ReadAllText(TestFileName);
 
             // Assert
-            Assert.AreEqual(1, lines.Length, "File content length does not match.");
-            Assert.AreEqual("Alice,Johnson,Doe,GroupC", lines[0], "File content does not match.");
+            Assert.AreEqual(1, students.Count, "Student count does not match after saving.");
+            Assert.IsTrue(jsonContent.Contains("Alice"), "Saved JSON content does not contain the correct student data.");
         }
 
         [TestMethod]
         public void SaveDataToFile_EmptyList_SavesEmptyFile()
         {
+            // Arrange
+            var students = new List<Student>();
+
             // Act
-            SsveData.SaveDataToFile();
-            string[] lines = File.ReadAllLines(TestFileName);
+            SaveData.SaveStudents(students);
+            string jsonContent = File.ReadAllText(TestFileName);
 
             // Assert
-            Assert.AreEqual(0, lines.Length, "Empty file content length does not match.");
+            Assert.AreEqual("[]", jsonContent.Trim(), "File content for empty list does not match.");
         }
     }
 }

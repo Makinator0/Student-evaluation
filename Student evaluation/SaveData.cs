@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using Student_evaluation;
 
-public static class StudentManager
+public static class SaveData
 
 {
     private const string FilePath = "DataProvider.json";

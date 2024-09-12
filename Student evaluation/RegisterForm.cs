@@ -156,7 +156,7 @@ namespace Student_evaluation
                 Group = userGroupField.Text
             };
 
-            StudentManager.AddStudent(student);
+            SaveData.AddStudent(student);
             MessageBox.Show("Data saved.");
 
             FormsManager.OpenForm(new SubjectsForm(student));
