@@ -12,6 +12,7 @@ public static class StudentManager
     {
         if (!File.Exists(FilePath))
         {
+
             // Отладочная информация
             System.Diagnostics.Debug.WriteLine("File does not exist, creating a new list.");
             return new List<Student>();
