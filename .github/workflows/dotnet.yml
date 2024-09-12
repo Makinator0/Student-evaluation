@@ -19,7 +19,7 @@ jobs:
       
 
     - name: Setup NuGet
-      uses: Nuget/setup-nuget@v1.0.2
+      uses: Nuget/setup-nuget@v6.11.0
       
     - name: Restore NuGet packages
       run: nuget restore Student evaluation.sln
