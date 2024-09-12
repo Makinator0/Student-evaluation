@@ -16,10 +16,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v4
+    - name: Setup .NET 6.x
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 4.7.2 
+        # Semantic version range syntax or exact version of a dotnet version
+        dotnet-version: '4.7.2' 
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
