@@ -21,15 +21,14 @@ jobs:
 
     - name: Restore dependencies
       run: dotnet restore
-      # Кэширование пакетов для ускорения последующих сборок
-      # Этот шаг может ускорить сборку, избегая повторного скачивания пакетов
-      - name: Cache NuGet packages
-        uses: actions/cache@v3
-        with:
-          path: ~/.nuget/packages
-          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
-          restore-keys: |
-            ${{ runner.os }}-nuget-
+
+    - name: Cache NuGet packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
 
     - name: Build
       run: dotnet build --no-restore --configuration Release
@@ -39,4 +38,3 @@ jobs:
 
     - name: Publish
       run: dotnet publish --configuration Release --output ./publish
-      # Добавьте этот шаг, если вы хотите публиковать артефакты сборки
