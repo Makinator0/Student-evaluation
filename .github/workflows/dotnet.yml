@@ -6,47 +6,27 @@ on:
   pull_request:
     branches: [ "master" ]
 
-
 jobs:
   build:
     env:
-        BUILD_CONFIG: 'Release'
-        SOLUTION: 'Student evaluation.sln/Student evaluation.Test.csproj'
+      BUILD_CONFIG: 'Release'
+      SOLUTION: 'Student evaluation.sln'
 
     runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
-      
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v2
       with:
-       dotnet-version: 8.x
+        dotnet-version: 8.x
+
     - name: Restore dependencies
       run: dotnet restore $SOLUTION
+
     - name: Build
-      run: dotnet build $SOLUTION -- configuration $BUILD_CONFIG
+      run: dotnet build $SOLUTION --configuration $BUILD_CONFIG
+
     - name: Test
-      run: dotnet test $SOLUTION -- configuration $BUILD_CONFIG
-
-    - name: Setup MSBuild
-      uses: microsoft/setup-msbuild@v1
-      
-
-    - name: Setup NuGet
-      uses: Nuget/setup-nuget@v2
-      
-    - name: Restore NuGet packages
-      run: nuget restore "Student evaluation.sln"
-      
-
-    - name: Build the Solution
-      run: msbuild "Student evaluation.sln"
-    
-
-    - name: Run Unit Tests
-      run: dotnet test 
-
-
-
-    
+      run: dotnet test "Student evaluation.Test/Student evaluation.Test.csproj" --configuration $BUILD_CONFIG
