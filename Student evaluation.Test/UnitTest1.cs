@@ -65,7 +65,7 @@ namespace Student_evaluation.Test
         public void TestEquality()
         {
             // Arrange
-            int a = 5;
+            int a = 4;
             int b = 5;
 
             // Act
