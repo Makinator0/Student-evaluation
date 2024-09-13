@@ -28,8 +28,8 @@ jobs:
       uses: NuGet/setup-nuget@v2
 
     - name: Restore NuGet packages
-      run: nuget restore "Student evaluation.sln"
+      run: nuget restore ./Student evaluation.sln
     - name: Build the Solution
-      run: msbuild "Student evaluation.sln"
+      run: dotnet build ./Student evaluation.sln --no-restore
     - name: Test
-      run: dotnet test --no-build --verbosity normal
+      run: dotnet test ./Student evaluation.Test/Student evaluation.Test.csproj --no-build --verbosity normal
