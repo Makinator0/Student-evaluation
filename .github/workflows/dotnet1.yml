@@ -12,6 +12,8 @@ jobs:
     runs-on: windows-latest
 
     steps:
+    - name: Install .NET Framework Developer Pack
+      run: choco install netfx-4.7.2-devpack
     - uses: actions/checkout@v4
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
@@ -19,8 +21,7 @@ jobs:
         dotnet-version: '4.7.2'
         architecture: 'x64'
         
-    - name: Install .NET Framework Developer Pack
-      run: choco install netfx-4.7.2-devpack
+    
       
     - name: Restore dependencies
       run: dotnet restore
