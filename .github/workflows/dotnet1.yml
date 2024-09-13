@@ -17,12 +17,23 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: '6.x'
+        architecture: 'x64'
+        
     - name: Install .NET Framework Developer Pack
       run: choco install netfx-4.7.2-devpack
+      
     - name: Restore dependencies
       run: dotnet restore
+      
+    - name: Set environment variable for MSBuild
+      run: set MSBUILDARCHITECTURE=x64
+      
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1
+      
+    - name: Install Workloads
+      run: dotnet workload install
+
     - name: Setup NuGet
       uses: NuGet/setup-nuget@v2
 
@@ -30,7 +41,7 @@ jobs:
       run: nuget restore "Student evaluation.sln"
       
     - name: Build the Solution
-      run: dotnet build "./Student evaluation.sln" --no-restore
+      run: dotnet build "./Student evaluation.sln" --no-restore -p:Platform=x64 -p:UseHostCompilationIfAvailable=false
       
     - name: Test
       run: dotnet test "./Student evaluation.Test/Student evaluation.Test.csproj" --no-build --verbosity normal
