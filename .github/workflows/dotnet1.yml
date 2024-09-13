@@ -16,7 +16,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: '6.x'
+        dotnet-version: '4.7.2'
         architecture: 'x64'
         
     - name: Install .NET Framework Developer Pack
