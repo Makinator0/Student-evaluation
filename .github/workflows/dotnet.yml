@@ -12,8 +12,7 @@ env:
 jobs:
   build-and-test:
     name: Build and Test
-    runs-on: ubuntu-latest
-    
+    runs-on: windows-latest  # Switch to a Windows runner
 
     steps:
     - name: Checkout Repository
@@ -41,3 +40,4 @@ jobs:
       with:
         name: publish-output
         path: ./output
+
