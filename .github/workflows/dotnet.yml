@@ -6,8 +6,8 @@ on:
 env:
   DOTNET_VERSION: 7.0.x
   CONFIGURATION: Release
-  SOLUTION_DIRECTORY: Student_evaluation
-  TEST_DIRECTORY: Student_evaluation.Test
+  SOLUTION_DIRECTORY: Student evaluation
+  TEST_DIRECTORY: Student evaluation.Test
 
 jobs:
   build-and-test:
