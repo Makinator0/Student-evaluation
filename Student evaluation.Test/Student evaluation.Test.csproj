@@ -118,6 +118,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FormsManager\FormsManager.csproj">
+      <Project>{f51a42f1-116d-417e-a4a2-5f08bd0b2d0e}</Project>
+      <Name>FormsManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Student evaluation\Student evaluation.csproj">
       <Project>{71c13148-f07d-4249-bc71-adc07256cdf0}</Project>
       <Name>Student evaluation</Name>
