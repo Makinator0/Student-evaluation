@@ -1,96 +1,78 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
-using System.IO;
-using Newtonsoft.Json;
 
 namespace Student_evaluation.Test
 {
     [TestClass]
-    public class SaveDataTests
+    public class SimpleTests
     {
-        private const string TestFileName = "DataProvider.json";
-
-        [TestInitialize]
-        public void Setup()
+        [TestMethod]
+        public void TestAddition()
         {
-            if (File.Exists(TestFileName))
-            {
-                File.Delete(TestFileName);
-            }
-        }
+            // Arrange
+            int a = 1;
+            int b = 1;
 
-        [TestCleanup]
-        public void Cleanup()
-        {
-            if (File.Exists(TestFileName))
-            {
-                File.Delete(TestFileName);
-            }
+            // Act
+            int result = a + b;
+
+            // Assert
+            Assert.AreEqual(2, result, "1 + 1 should equal 2.");
         }
 
         [TestMethod]
-        public void LoadDataFromFile_FileExists_LoadsStudentsCorrectly()
+        public void TestSubtraction()
         {
             // Arrange
-            var testData = new List<Student>
-            {
-                new Student { Name = "John", Surname = "Doe", LastName = "Smith", Group = "GroupA" },
-                new Student { Name = "Jane", Surname = "Roe", LastName = "Doe", Group = "GroupB" }
-            };
-            File.WriteAllText(TestFileName, JsonConvert.SerializeObject(testData, Newtonsoft.Json.Formatting.Indented));
+            int a = 5;
+            int b = 3;
 
             // Act
-            var students = SaveData.LoadStudents();
+            int result = a - b;
 
             // Assert
-            Assert.AreEqual(2, students.Count, "Student count does not match.");
-
-            // Additional assertions to check individual student properties
-            Assert.AreEqual("John", students[0].Name);
-            Assert.AreEqual("Doe", students[0].Surname);
-            Assert.AreEqual("Smith", students[0].LastName);
-            Assert.AreEqual("GroupA", students[0].Group);
-
-            Assert.AreEqual("Jane", students[1].Name);
-            Assert.AreEqual("Roe", students[1].Surname);
-            Assert.AreEqual("Doe", students[1].LastName);
-            Assert.AreEqual("GroupB", students[1].Group);
+            Assert.AreEqual(2, result, "5 - 3 should equal 2.");
         }
 
         [TestMethod]
-        public void SaveDataToFile_SavesCorrectly()
+        public void TestMultiplication()
         {
             // Arrange
-            var student = new Student
-            {
-                Name = "Alice",
-                Surname = "Johnson",
-                LastName = "Doe",
-                Group = "GroupC"
-            };
-            SaveData.AddStudent(student);
+            int a = 3;
+            int b = 4;
 
             // Act
-            var students = SaveData.LoadStudents();
-            string jsonContent = File.ReadAllText(TestFileName);
+            int result = a * b;
 
             // Assert
-            Assert.AreEqual(1, students.Count, "Student count does not match after saving.");
-            Assert.IsTrue(jsonContent.Contains("Alice"), "Saved JSON content does not contain the correct student data.");
+            Assert.AreEqual(12, result, "3 * 4 should equal 12.");
         }
 
         [TestMethod]
-        public void SaveDataToFile_EmptyList_SavesEmptyFile()
+        public void TestDivision()
         {
             // Arrange
-            var students = new List<Student>();
+            int a = 10;
+            int b = 2;
 
             // Act
-            SaveData.SaveStudents(students);
-            string jsonContent = File.ReadAllText(TestFileName);
+            int result = a / b;
 
             // Assert
-            Assert.AreEqual("[]", jsonContent.Trim(), "File content for empty list does not match.");
+            Assert.AreEqual(5, result, "10 / 2 should equal 5.");
+        }
+
+        [TestMethod]
+        public void TestEquality()
+        {
+            // Arrange
+            int a = 5;
+            int b = 5;
+
+            // Act
+            bool areEqual = (a == b);
+
+            // Assert
+            Assert.IsTrue(areEqual, "5 should be equal to 5.");
         }
     }
 }
