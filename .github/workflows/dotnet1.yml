@@ -37,8 +37,6 @@ jobs:
     - name: Restore NuGet packages
       run: nuget restore "Student evaluation.sln"
       
-    - name: Build the Solution
-      run: dotnet build "./Student evaluation.sln" --no-restore -p:Platform=x64 -p:UseHostCompilationIfAvailable=false
       
     - name: Test
       run: dotnet test "./Student evaluation.Test/Student evaluation.Test.csproj" --no-build --verbosity normal
