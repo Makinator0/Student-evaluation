@@ -15,6 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Student evaluation.Test", "Student evaluation.Test\Student evaluation.Test.csproj", "{851967A7-CAD1-40BA-A1D5-4F943DA15B07}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F51A42F1-116D-417E-A4A2-5F08BD0B2D0E} = {F51A42F1-116D-417E-A4A2-5F08BD0B2D0E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

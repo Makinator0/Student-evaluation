@@ -158,8 +158,8 @@ namespace Student_evaluation
 
             SaveData.AddStudent(student);
             MessageBox.Show("Data saved.");
-
-            FormsManager.OpenForm(new SubjectsForm(student));
+            FormsManager.OpenForm(new SemestrForm(student));
+           
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

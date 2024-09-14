@@ -113,6 +113,8 @@
     <Compile Include="AutoriseForm.Designer.cs">
       <DependentUpon>AutoriseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SubjectGrades.cs" />
+    <Compile Include="Semestr.cs" />
     <Compile Include="StudentListForm.cs">
       <SubType>Form</SubType>
     </Compile>

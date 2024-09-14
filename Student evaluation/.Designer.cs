@@ -37,9 +37,9 @@
             this.ClientSize = new System.Drawing.Size(1346, 678);
             this.Name = "StudentListForm";
             this.Text = "Student List";
-            // Remove the line that attaches the event handler
-            // this.Load += new System.EventHandler(this.StudentListForm_Load);
+            this.Load += new System.EventHandler(this.StudentListForm_Load);
             this.ResumeLayout(false);
+
         }
 
         #endregion

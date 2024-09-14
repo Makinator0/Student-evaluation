@@ -15,10 +15,12 @@ namespace Student_evaluation
     {
         protected string _shortName;
         protected Student _student;
-        public SubjectsForm(Student student)
+        private string _semesterNumber;
+        public SubjectsForm(Student student, string semesterNumber)
         {
             InitializeComponent();
             _student = student;
+            _semesterNumber = semesterNumber;
             _shortName = GenerateShortName(_student.Surname, _student.Name, _student.LastName);
             label2.Text = _shortName;
             label4.Text = _student.Group;
@@ -42,7 +44,7 @@ namespace Student_evaluation
 
         private void button10_Click(object sender, EventArgs e)
         {
-            FormsManager.OpenForm(new HighMathForm(_student,_shortName));
+            FormsManager.OpenForm(new HighMathForm(_student, _semesterNumber, _shortName));
         }
         Point lastPoint3;
         private void panel1_MouseMove(object sender, MouseEventArgs e)

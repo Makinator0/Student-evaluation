@@ -12,5 +12,7 @@ namespace Student_evaluation
         public string Surname { get; set; }
         public string LastName { get; set; }
         public string Group { get; set; }
+        public List<Semester> Semesters { get; set; } = new List<Semester>();
+        
     }
 }

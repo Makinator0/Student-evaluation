@@ -31,7 +31,7 @@ namespace Student_evaluation
 
         private void LoadDataFromFileAndCreateListBoxes()
         {
-            // Clear existing controls on the panel
+            
             if (_panel != null)
             {
                 this.Controls.Remove(_panel);
@@ -40,14 +40,14 @@ namespace Student_evaluation
 
             _panel = new Panel();
             _panel.AutoScroll = true;
-            _panel.Size = new System.Drawing.Size(800, 500); // Adjusted size to fit footer buttons
+            _panel.Size = new System.Drawing.Size(800, 500); 
             _panel.Location = new System.Drawing.Point(10, 50);
             this.Controls.Add(_panel);
 
             if (File.Exists("students.txt"))
             {
                 string[] lines = File.ReadAllLines("students.txt");
-                MessageBox.Show($"Found {lines.Length} lines in students.txt");
+               
 
                 var groupStudents = new Dictionary<string, List<Student>>();
 
@@ -79,7 +79,7 @@ namespace Student_evaluation
 
                 foreach (var group in groupStudents)
                 {
-                    // Create header label for each group
+                    
                     Label headerLabel = new Label();
                     headerLabel.Text = group.Key;
                     headerLabel.Size = new System.Drawing.Size(ListBoxWidth, HeaderHeight);
@@ -111,10 +111,7 @@ namespace Student_evaluation
 
                 _panel.PerformLayout();
             }
-            else
-            {
-                MessageBox.Show("Файл students.txt не найден!");
-            }
+          
         }
 
         private void OpenStudentForm(Student student)
@@ -156,6 +153,11 @@ namespace Student_evaluation
             MessageBox.Show("Students updated!");
             // Reload the data from the file and recreate the list boxes
             LoadDataFromFileAndCreateListBoxes();
+        }
+
+        private void StudentListForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

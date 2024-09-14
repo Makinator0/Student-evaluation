@@ -46,9 +46,12 @@
             this.textBox14 = new System.Windows.Forms.TextBox();
             this.textBox13 = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -182,9 +185,9 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(5, 185);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(94, 13);
+            this.label14.Size = new System.Drawing.Size(60, 13);
             this.label14.TabIndex = 19;
-            this.label14.Text = "Перший Семестр";
+            this.label14.Text = "Друге ІДЗ";
             // 
             // textBox14
             // 
@@ -209,18 +212,14 @@
             this.label15.TabIndex = 22;
             this.label15.Text = "Середній бал";
             // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(107, 230);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(100, 20);
-            this.textBox16.TabIndex = 23;
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(235)))), ((int)(((byte)(227)))));
-            this.panel1.Controls.Add(this.textBox15);
-            this.panel1.Controls.Add(this.textBox16);
+            this.panel1.Controls.Add(this.label13);
+            this.panel1.Controls.Add(this.label12);
+            this.panel1.Controls.Add(this.label11);
+            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label15);
             this.panel1.Controls.Add(this.textBox13);
             this.panel1.Controls.Add(this.textBox14);
@@ -239,13 +238,51 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(386, 444);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // textBox15
+            // button1
             // 
-            this.textBox15.Location = new System.Drawing.Point(243, 230);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 20);
-            this.textBox15.TabIndex = 24;
+            this.button1.Location = new System.Drawing.Point(105, 285);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(124, 27);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(106, 233);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 13);
+            this.label7.TabIndex = 26;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(240, 233);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(0, 13);
+            this.label11.TabIndex = 27;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(102, 233);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(73, 13);
+            this.label12.TabIndex = 28;
+            this.label12.Text = "Середній бал";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(238, 233);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(73, 13);
+            this.label13.TabIndex = 29;
+            this.label13.Text = "Середній бал";
             // 
             // HighMathForm
             // 
@@ -284,8 +321,11 @@
         private System.Windows.Forms.TextBox textBox14;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox16;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
     }
 }
