@@ -27,4 +27,4 @@ jobs:
       run: msbuild "Student evaluation.sln"
 
     - name: Test
-      run: dotnet test "./Student evaluation.Test/Student evaluation.Test.csproj" --no-build --verbosity normal
+      run: dotnet test "Student evaluation.Test" --no-build --verbosity normal
