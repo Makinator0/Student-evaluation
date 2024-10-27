@@ -5,11 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FormsManageraNamespace
+namespace Student_evaluation
 {
-    public static class  FormsManager
+    public static class FormsManager
     {
-    
+
 
         public static void OpenForm(Form form)
         {

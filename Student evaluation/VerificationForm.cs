@@ -27,8 +27,8 @@ namespace Student_evaluation
             //TwilioClient.Init(twilioConfig.AccountSID, twilioConfig.AuthToken);
             //MessageResource.Create(
             //                   body: "Your token is " + Token1 + "",
-            //                                  from: new Twilio.Types.PhoneNumber("+14158559808"),
-            //                                                 to: new Twilio.Types.PhoneNumber("+380986294196"));
+              //                                from: new Twilio.Types.PhoneNumber("+14158559808"),
+                //                                             to: new Twilio.Types.PhoneNumber("+380986294196"));
             //Console.WriteLine("Sms was sent");
             _registerForm = new RegisterForm();
             _studentListForm = new StudentListForm();

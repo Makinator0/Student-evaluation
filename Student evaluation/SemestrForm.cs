@@ -55,6 +55,7 @@ namespace Student_evaluation
 
         private void button8_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             var newSemester = new Semester
             {
                 SemesterNumber = "2",
@@ -64,11 +65,12 @@ namespace Student_evaluation
             _student.Semesters.Add(newSemester);
 
             // Передаем номер семестра в форму
-            FormsManager.OpenForm(new SubjectsForm(_student, "2"));
+            FormsManager.OpenForm(new SubjectsForm(_student, "2", this));
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             var newSemester = new Semester
             {
                 SemesterNumber = "1",
@@ -78,7 +80,8 @@ namespace Student_evaluation
             _student.Semesters.Add(newSemester);
 
             // Передаем номер семестра в форму
-            FormsManager.OpenForm(new SubjectsForm(_student, "1"));
+            FormsManager.OpenForm(new SubjectsForm(_student, "1", this));
         }
+
     }
 }

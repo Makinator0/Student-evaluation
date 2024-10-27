@@ -1,0 +1,43 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
+    <NoWarn>$(NoWarn);NU1507</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageVersion Include="BouncyCastle.Cryptography" Version="2.2.1" />
+    <PackageVersion Include="itext" Version="8.0.5" />
+    <PackageVersion Include="itext.bouncy-castle-adapter" Version="8.0.5" />
+    <PackageVersion Include="itext.bouncy-castle-fips-adapter" Version="8.0.5" />
+    <PackageVersion Include="itext.commons" Version="8.0.5" />
+    <PackageVersion Include="itext7" Version="8.0.5" />
+    <PackageVersion Include="itext7.bouncy-castle-adapter" Version="8.0.5" />
+    <PackageVersion Include="itext7.bouncy-castle-fips-adapter" Version="8.0.5" />
+    <PackageVersion Include="Microsoft.Bcl.AsyncInterfaces" Version="8.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Options" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.Extensions.Primitives" Version="5.0.0" />
+    <PackageVersion Include="Microsoft.IdentityModel.Abstractions" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.IdentityModel.JsonWebTokens" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.IdentityModel.Logging" Version="8.0.2" />
+    <PackageVersion Include="Microsoft.IdentityModel.Tokens" Version="8.0.2" />
+    <PackageVersion Include="MSTest.TestFramework" Version="3.6.0" />
+    <PackageVersion Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageVersion Include="System.Buffers" Version="4.5.1" />
+    <PackageVersion Include="System.Collections.Specialized" Version="4.3.0" />
+    <PackageVersion Include="System.Diagnostics.DiagnosticSource" Version="5.0.0" />
+    <PackageVersion Include="System.IdentityModel.Tokens.Jwt" Version="8.0.2" />
+    <PackageVersion Include="System.Memory" Version="4.5.5" />
+    <PackageVersion Include="System.Numerics.Vectors" Version="4.5.0" />
+    <PackageVersion Include="System.Runtime.CompilerServices.Unsafe" Version="6.0.0" />
+    <PackageVersion Include="System.Text.Encoding" Version="4.3.0" />
+    <PackageVersion Include="System.Text.Encodings.Web" Version="8.0.0" />
+    <PackageVersion Include="System.Text.Json" Version="8.0.4" />
+    <PackageVersion Include="System.Threading.Tasks.Extensions" Version="4.5.4" />
+    <PackageVersion Include="System.ValueTuple" Version="4.5.0" />
+    <PackageVersion Include="Twilio" Version="7.3.0" />
+  </ItemGroup>
+</Project>

@@ -20,14 +20,16 @@ namespace Student_evaluation
 
 
 
-        
+
         private Form _verifyForm;
+        private Form _studentForm;
 
         public AutoriseForm()
         {
             InitializeComponent();
-           
+
             _verifyForm = new VerificationForm();
+            _studentForm = new StudentInfoForm();
 
         }
 
@@ -41,23 +43,24 @@ namespace Student_evaluation
             string username = loginField.Text;
             string password = passField.Text;
 
-
             if (username == _allowedName && password == _allowedPassword)
             {
-                MessageBox.Show("Вхід виконано успішно!");
+                // If the user is a student, open the StudentInfo form
+                _studentForm.Show();
+                this.Visible = false;  // Hide the AutoriseForm
+            }
+            else if (username == "teacher" && password == _allowedPassword)
+            {
+                // If the user is a teacher, open the VerificationForm
                 _verifyForm.Show();
-                this.Visible = false;  
-
-
-
-
-
+                this.Visible = false;  // Hide the AutoriseForm
             }
             else
             {
                 MessageBox.Show("Неправильне ім'я користувача або пароль. Спробуйте знову.");
             }
         }
+
 
         private void closeButton_Click(object sender, EventArgs e)
         {

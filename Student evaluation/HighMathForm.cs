@@ -15,16 +15,20 @@ namespace Student_evaluation
         private Student _student;
         private string _semesterNumber;
         private string _shortName;
+        private string _Subject;
 
-        public HighMathForm(Student student, string semesterNumber, string shortName)
+        public HighMathForm(Student student, string semesterNumber, string shortName, string Subject)
         {
             InitializeComponent();
+            _Subject = Subject;
             _student = student;
             _semesterNumber = semesterNumber;
             _shortName = shortName;
             label2.Text = _shortName;
             label4.Text = _student.Group;
+            label5.Text = Subject;
         }
+        
 
         private void HighMathForm_Load(object sender, EventArgs e)
         {
@@ -64,12 +68,37 @@ namespace Student_evaluation
             };
 
             // Обновляем оценки студента
-            SaveData.UpdateStudentGrades(_student.Name, _semesterNumber, "HigherMathematics", grades);
+            SaveData.UpdateStudentGrades(_student.Name, _semesterNumber, _Subject, grades);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
             // Здесь можно добавить код для рисования на панели, если требуется.
+        }
+        Point lastPoint3;
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.Left += e.X - lastPoint3.X;
+                this.Top += e.Y - lastPoint3.Y;
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            lastPoint3 = new Point(e.X, e.Y);
+        }
+
+        private void closeButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+
+        }
+
+        private void closeButton1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 

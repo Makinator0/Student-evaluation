@@ -4,7 +4,6 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{71C13148-F07D-4249-BC71-ADC07256CDF0}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>Student_evaluation</RootNamespace>
     <AssemblyName>Student evaluation</AssemblyName>
@@ -113,6 +112,13 @@
     <Compile Include="AutoriseForm.Designer.cs">
       <DependentUpon>AutoriseForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormsManager.cs" />
+    <Compile Include="StudentInfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StudentInfoForm.Designer.cs">
+      <DependentUpon>StudentInfoForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubjectGrades.cs" />
     <Compile Include="Semestr.cs" />
     <Compile Include="StudentListForm.cs">
@@ -160,6 +166,9 @@
     </Compile>
     <EmbeddedResource Include="AutoriseForm.resx">
       <DependentUpon>AutoriseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StudentInfoForm.resx">
+      <DependentUpon>StudentInfoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentListForm.resx">
       <DependentUpon>StudentListForm.cs</DependentUpon>

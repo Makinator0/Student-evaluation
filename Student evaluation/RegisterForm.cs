@@ -1,5 +1,7 @@
 ﻿using FormsManageraNamespace;
 using System;
+using FormsManageraNamespace;
+using FormsManager;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,15 +16,30 @@ namespace Student_evaluation
 {
     public partial class RegisterForm : Form
     {
-        
-        public RegisterForm()
+        private bool isEditMode;
+        private string originalDisplayName; // для хранения исходного ФИО студента
+
+        public RegisterForm(bool editMode = false, Student studentToEdit = null)
         {
             InitializeComponent();
             userNameField.Text = "Введіть ім`я";
             userSurnameField.Text = "Введіть прізвище";
             userLastnameField.Text = "Введіть ім`я по-батькові";
             userGroupField.Text = "Введіть групу";
-           
+            isEditMode = editMode;
+
+            if (isEditMode && studentToEdit != null)
+            {
+                // Заполняем поля для редактирования
+                userNameField.Text = studentToEdit.Name;
+                userSurnameField.Text = studentToEdit.Surname;
+                userLastnameField.Text = studentToEdit.LastName;
+                userGroupField.Text = studentToEdit.Group;
+                button1.Text = "Підтвердити";
+                label1.Text = "Студент";
+
+                originalDisplayName = $"{studentToEdit.Surname} {studentToEdit.Name} {studentToEdit.LastName}";
+            }
 
         }
 
@@ -156,10 +173,20 @@ namespace Student_evaluation
                 Group = userGroupField.Text
             };
 
-            SaveData.AddStudent(student);
-            MessageBox.Show("Data saved.");
-            FormsManager.OpenForm(new SemestrForm(student));
+            if (isEditMode)
+            {
+                SaveData.EditStudent(originalDisplayName, student); // Редактируем существующего студента
+                FormsManager.OpenForm(new SemestrForm(student));
+                this.Visible = false;
+            }
+            else
+            {
+                SaveData.AddStudent(student); // Добавляем нового студента
+                FormsManager.OpenForm(new SemestrForm(student));
+                this.Visible = false;
+            }
            
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
