@@ -100,6 +100,31 @@ namespace Student_evaluation
         {
             this.Close();
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
 }

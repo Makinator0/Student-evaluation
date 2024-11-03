@@ -18,9 +18,9 @@ namespace Student_evaluation
 
             // Создаем контекстное меню
             _contextMenu = new ContextMenuStrip();
-            var deleteMenuItem = new ToolStripMenuItem("Удалить", null, DeleteStudent);
-            var editMenuItem = new ToolStripMenuItem("Редактировать", null, EditStudent);
-            var semestrMenuItem = new ToolStripMenuItem("Звіт", null, OpenSemesterForm); // Новый пункт меню
+            var deleteMenuItem = new ToolStripMenuItem("Видалити", null, DeleteStudent);
+            var editMenuItem = new ToolStripMenuItem("Редагувати", null, EditStudent);
+            var semestrMenuItem = new ToolStripMenuItem("Звіт", null, OpenSemesterForm); 
 
             _contextMenu.Items.Add(deleteMenuItem);
             _contextMenu.Items.Add(editMenuItem);
@@ -176,13 +176,13 @@ namespace Student_evaluation
                     }
                     else
                     {
-                        MessageBox.Show("Студент не найден.");
+                        MessageBox.Show("Студента не знайдено.");
                         LoadStudentsIntoListBoxes();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Неправильный формат данных студента.");
+                    MessageBox.Show("Неправильний формат даних студента.");
                 }
             }
         }
@@ -207,12 +207,12 @@ namespace Student_evaluation
                     }
                     else
                     {
-                        MessageBox.Show("Студент не найден.");
+                        MessageBox.Show("Студента не знайдено.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Неправильный формат данных студента.");
+                    MessageBox.Show("Неправильний формат даних студента.");
                 }
             }
         }
@@ -246,7 +246,7 @@ namespace Student_evaluation
 
         private void авторToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Created by Hasiuk Maksym");
+            MessageBox.Show("Створив Гасюк Максим");
         }
 
         private void StudentListForm_Load(object sender, EventArgs e)
@@ -264,7 +264,7 @@ namespace Student_evaluation
 
             if (string.IsNullOrWhiteSpace(surnameToSearch))
             {
-                MessageBox.Show("Введите фамилию для поиска.");
+                MessageBox.Show("Введіть прізвище для пошуку.");
                 return;
             }
 
@@ -289,7 +289,7 @@ namespace Student_evaluation
 
             if (targetListBox == null)
             {
-                MessageBox.Show("Студент с такой фамилией не найден.");
+                MessageBox.Show("Студента з таким прізвищем не знайдено.");
             }
           
         }

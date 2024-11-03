@@ -29,7 +29,7 @@ namespace Student_evaluation
             InitializeComponent();
 
             _verifyForm = new VerificationForm();
-            _studentForm = new StudentInfoForm();
+            _studentForm = new StudentInfoForm(this);
 
         }
 
@@ -45,15 +45,15 @@ namespace Student_evaluation
 
             if (username == _allowedName && password == _allowedPassword)
             {
-                // If the user is a student, open the StudentInfo form
+                
                 _studentForm.Show();
-                this.Visible = false;  // Hide the AutoriseForm
+                this.Visible = false;  
             }
             else if (username == "teacher" && password == _allowedPassword)
             {
-                // If the user is a teacher, open the VerificationForm
+                
                 _verifyForm.Show();
-                this.Visible = false;  // Hide the AutoriseForm
+                this.Visible = false;  
             }
             else
             {
@@ -95,10 +95,10 @@ namespace Student_evaluation
             closeButton.ForeColor = Color.Red;
         }
 
-        
 
-        
-
-        
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

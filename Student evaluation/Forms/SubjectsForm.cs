@@ -130,79 +130,79 @@ namespace Student_evaluation
             GeneratePdfReport(selectedSemester);
         }
         private void GeneratePdfReport(string selectedSemester)
+{
+    
+    string currentDate = DateTime.Now.ToString("yyyy\\MM\\dd_HH.mm.ss");
+    string filePath = $"StudentReport_{_student.Surname}_{_student.Name}_{currentDate}.pdf";
+    
+    if (string.IsNullOrEmpty(filePath) || Path.GetInvalidPathChars().Any(filePath.Contains))
+    {
+        MessageBox.Show("Неправильний шлях до файлу");
+        return;
+    }
+
+    using (PdfWriter writer = new PdfWriter(filePath))
+    {
+        using (PdfDocument pdf = new PdfDocument(writer))
         {
-            string filePath = $"StudentReport_{_student.Surname}_{_student.Name}.pdf";
+            Document document = new Document(pdf);
 
-            // Check if the file path is valid
-            if (string.IsNullOrEmpty(filePath) || Path.GetInvalidPathChars().Any(filePath.Contains))
-            {
-                MessageBox.Show("Неверный путь к файлу.");
-                return;
-            }
+            
+            PdfFont font = PdfFontFactory.CreateFont("C:\\Windows\\Fonts\\arial.ttf", "Identity-H");
 
-            // Create the PDF document
-            using (PdfWriter writer = new PdfWriter(filePath))
+            
+            document.Add(new Paragraph($"Студент: {_student.Surname} {_student.Name} {_student.LastName}").SetFont(font));
+            document.Add(new Paragraph($"Група: {_student.Group}").SetFont(font));
+            document.Add(new Paragraph($"Семестри:").SetFont(font));
+
+            
+            var semester = _student.Semesters.FirstOrDefault(s => s.SemesterNumber == selectedSemester);
+            if (semester != null)
             {
-                using (PdfDocument pdf = new PdfDocument(writer))
+                document.Add(new Paragraph($"Семестр {semester.SemesterNumber}:").SetFont(font));
+
+                
+                if (semester.Grades.Count > 0)
                 {
-                    Document document = new Document(pdf);
-
-                    // Set font to support Cyrillic
-                    PdfFont font = PdfFontFactory.CreateFont("C:\\Windows\\Fonts\\arial.ttf", "Identity-H");
-
-                    // Add student information
-                    document.Add(new Paragraph($"Студент: {_student.Surname} {_student.Name} {_student.LastName}").SetFont(font));
-                    document.Add(new Paragraph($"Группа: {_student.Group}").SetFont(font));
-                    document.Add(new Paragraph($"Семестры:").SetFont(font));
-
-                    // Find the selected semester
-                    var semester = _student.Semesters.FirstOrDefault(s => s.SemesterNumber == selectedSemester);
-                    if (semester != null)
+                    foreach (var grade in semester.Grades)
                     {
-                        document.Add(new Paragraph($"Семестр {semester.SemesterNumber}:").SetFont(font));
+                        var subject = grade.Key;
+                        var details = grade.Value;
 
-                        // Check if there are grades for the semester
-                        if (semester.Grades.Count > 0)
-                        {
-                            foreach (var grade in semester.Grades)
-                            {
-                                var subject = grade.Key;
-                                var details = grade.Value;
-
-                                document.Add(new Paragraph($"  Предмет: {subject}").SetFont(font));
-                                document.Add(new Paragraph($"    Первая домашка: {details.FirstHW}").SetFont(font));
-                                document.Add(new Paragraph($"    Первый тест: {details.FirstTest}").SetFont(font));
-                                document.Add(new Paragraph($"    Вторая домашка: {details.SecondHW}").SetFont(font));
-                                document.Add(new Paragraph($"    Средний балл: {details.AverageScore:F2}").SetFont(font));
-                                document.Add(new Paragraph($"    Оценка: {details.LetterGrade}").SetFont(font));
-                            }
-                        }
-                        else
-                        {
-                            document.Add(new Paragraph($"Нет оценок за этот семестр").SetFont(font));
-                        }
+                        document.Add(new Paragraph($"  Предмет: {subject}").SetFont(font));
+                        document.Add(new Paragraph($"    Перше ІДЗ: {details.FirstHW}").SetFont(font));
+                        document.Add(new Paragraph($"    Перший тест: {details.FirstTest}").SetFont(font));
+                        document.Add(new Paragraph($"    Друге ІДЗ: {details.SecondHW}").SetFont(font));
+                        document.Add(new Paragraph($"    Средній бал: {details.AverageScore:F2}").SetFont(font));
+                        document.Add(new Paragraph($"    Оцінка: {details.LetterGrade}").SetFont(font));
                     }
-
-                    document.Close();
+                }
+                else
+                {
+                    document.Add(new Paragraph($"Немає оцінок за цей семестр").SetFont(font));
                 }
             }
 
-            // Open the PDF document
-            try
-            {
-                Process.Start(new ProcessStartInfo
-                {
-                    FileName = filePath,
-                    UseShellExecute = true
-                });
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Не удалось открыть PDF документ: {ex.Message}");
-            }
-
-            MessageBox.Show("PDF отчет успешно сгенерирован по пути: " + Path.GetFullPath(filePath));
+            document.Close();
         }
+    }
+    
+    try
+    {
+        Process.Start(new ProcessStartInfo
+        {
+            FileName = filePath,
+            UseShellExecute = true
+        });
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show($"Не вдалося відкрити PDF документ: {ex.Message}");
+    }
+
+    MessageBox.Show("PDF-звіт успішно згенеровано за шляхом: " + Path.GetFullPath(filePath));
+}
+
 
 
 

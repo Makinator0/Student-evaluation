@@ -98,7 +98,7 @@ namespace Student_evaluation
                 student.LastName = updatedStudent.LastName;
                 student.Group = updatedStudent.Group;
 
-                SaveStudents(students); // Сохраняем изменения в JSON
+                SaveStudents(students); 
             }
         }
 
