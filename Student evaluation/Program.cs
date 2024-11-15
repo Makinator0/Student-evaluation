@@ -23,7 +23,7 @@ namespace Student_evaluation
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AutoriseForm());
+            Application.Run(new StudentListForm());
         }
         private static void LoadDataFromFile()
         {

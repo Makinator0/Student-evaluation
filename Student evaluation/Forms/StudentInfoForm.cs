@@ -77,8 +77,6 @@ namespace Student_evaluation
                 MessageBox.Show("Студента не знайдено. Будь ласка, виберіть коректного студента.");
             }
         }
-
-
         private void GeneratePdfReport()
 {
     // Форматируем текущую дату и время
@@ -158,4 +156,5 @@ namespace Student_evaluation
             this.Close();
         }
     }
+    
 }

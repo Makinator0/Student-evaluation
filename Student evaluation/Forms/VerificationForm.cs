@@ -20,15 +20,15 @@ namespace Student_evaluation
         public VerificationForm()
         {
             InitializeComponent();
-            //Random random = new Random();
+            Random random = new Random();
             //Token1 = random.Next(1000, 10000).ToString();
             //var twilioConfigString = File.ReadAllText("twilioConfig.json");
             //var twilioConfig = JsonSerializer.Deserialize<TwilioConfig>(twilioConfigString);
             //TwilioClient.Init(twilioConfig.AccountSID, twilioConfig.AuthToken);
             //MessageResource.Create(
-              //                 body: "Your token is " + Token1 + "",
-              //                                from: new Twilio.Types.PhoneNumber("+14158559808"),
-               //                                              to: new Twilio.Types.PhoneNumber("+380986294196"));
+            //                   body: "Your token is " + Token1 + "",
+            //                                  from: new Twilio.Types.PhoneNumber("+14158559808"),
+            //                                                to: new Twilio.Types.PhoneNumber("+380986294196"));
             //Console.WriteLine("Sms was sent");
             _registerForm = new RegisterForm();
             _studentListForm = new StudentListForm();
@@ -44,7 +44,7 @@ namespace Student_evaluation
         private void button2_Click(object sender, EventArgs e)
         {
             string token = SmsField.Text;
-            //Token1 = "8739";
+            Token1 = "8739";
             if (token == Token1)
             {
 
