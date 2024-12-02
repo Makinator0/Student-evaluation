@@ -44,7 +44,6 @@ namespace Student_evaluation
         private void button2_Click(object sender, EventArgs e)
         {
             string token = SmsField.Text;
-            Token1 = "8739";
             if (token == Token1)
             {
 
